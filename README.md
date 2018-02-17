@@ -7,7 +7,7 @@ This project is an implementation of Django's official tutorial with MongoDB sup
 
 This project depends on Python 3.6, MongoDB 3.6 and  Django and Djongo python projects. For install it with pip type:
 
-'''
+```
 python -m venv venv
 
 venv\\bin\\activate (linux)
@@ -15,13 +15,13 @@ venv\\bin\\activate (linux)
 venv\\Scripts\\activate (windows)
 
 pip install -r requirementes.txt
-'''
+```
 
 # Test Django version
 
 You can type in a python console:
 
-'''Python
+```Python
 import django
 
 print(django.get_version())
