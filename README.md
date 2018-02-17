@@ -1,0 +1,1 @@
+# getstarted_django
