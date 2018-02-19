@@ -1,8 +1,10 @@
 from django.db import models
 
 import datetime
-
+import pytz
 from django.utils import timezone
+from django.conf import settings
+TIME_ZONE = getattr(settings, "TIME_ZONE", None)
 
 # Create your models here.
 
@@ -14,8 +16,11 @@ class Question(models.Model):
         return self.question_text
 
     def was_published_recently(self):
-        now = timezone.now()
-        return now - datetime.timedelta(days=1) <= self.pub_date <= now    
+        now = timezone.now()    
+        return now - datetime.timedelta(days=1) <= self.pub_date.replace(tzinfo=pytz.timezone(TIME_ZONE)) <= now
+        was_published_recently.admin_order_field = 'pub_date'
+        was_published_recently.boolean = True
+        was_published_recently.short_description = 'Published recently?'
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
