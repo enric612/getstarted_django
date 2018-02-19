@@ -17,6 +17,13 @@ venv\\Scripts\\activate (windows)
 pip install -r requirementes.txt
 ```
 
+# Migrations
+
+```
+python manage.py migrate
+
+```
+
 # Test Django version
 
 You can type in a python console:
